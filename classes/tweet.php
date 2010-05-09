@@ -16,7 +16,7 @@ class tweet
     private $text = NULL;
 
     /**
-    * Accepts a JSON string that twitter returns and an index, 
+    * Accepts an array of tweet elements
     * converts this into instance variables in the tweet object.
     * @param $tweet_array an array of elements of the tweet
     */
