@@ -22,7 +22,7 @@ class database
 	}
 	
 	// destructor
-	function __destruct($value='')
+	function __destruct()
 	{
 		$this->disconnect();
 	}
@@ -38,12 +38,14 @@ class database
 		return mysql_close($this->link);
 	}
 	
+	// pulls tweets from database, and returns an array of Tweet objects
 	public function getTweets()
 	{
 		
 	}
 	
-	public function pushTweets()
+	// pushes array of tweet objects to database
+	public function pushTweets($tweetArray)
 	{
 		
 	}
