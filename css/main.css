@@ -1,0 +1,109 @@
+body {
+	width:750px;
+	margin:0 auto;
+	background-color: #A4BCC2;
+	background-image:url('../img/bg_200x200.png');
+	background-repeat:repeat-x repeat-y;
+	font:13px "Helvetica Neue",Helvetica,Arial,Geneva,sans-serif;
+}
+
+div.center_column {
+	width:750px;
+}
+
+
+/* ----- HEADER ----- */
+#header {
+	padding-top: 20px;
+	height:150px;
+}
+
+	#header img#logo {
+		width: 
+	}
+
+/* ----- MAIN CONTENT ----- */
+#content { 
+	min-height:500px; /* for modern browsers */
+	height:auto !important; /* for modern browsers */
+	height:500px; /* for IE5.x and IE6 */
+}
+
+p, dl, multicol {
+	display:block;
+	margin:1em 0;
+}
+
+/* Links */
+a.at_link {
+	color: #DBE6EC;
+}
+
+a.from_user {
+	color: #E8F3F8;
+}
+
+a.tweet_id {
+	color: #C2CBCE;
+}
+
+span.created_at {
+	color: #A4BCC2;
+}
+
+
+/* FEED */
+element.style  {
+	display:block;
+	height:48px;
+	width:48px;
+}
+
+ul.feed {
+	list-style-type:none;
+	
+}
+	ul.feed li {
+		background-color: #81A8B8;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		height:80px;
+		margin-top:17px;
+		padding:5px;
+		width:6	0px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+		ul.feed li a span {
+			margin:6px;
+		}
+
+		ul.feed li p.tweet_avatar {
+			background-color: #81A8B8;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			bottom:20px;
+			float:left;
+			height:60px;
+			position:relative;
+			right:75px;
+			width:60px;
+		}
+		
+		p.tweet_text {
+			color:#0D1418;
+			margin:13px 30px 0 0px;
+		}
+		
+		p.tweet_info {
+			color:#05253B;
+			margin:3px 0 0 0px;
+		}
+		
+
+
+/* ----- FOOTER ----- */
+#footer { 
+	height:100px;
+}

@@ -44,7 +44,7 @@ class database
 		
 	}
 	
-	// pushes array of tweet objects to database
+	// pushes array of tweet objects to databases
 	public function pushTweets($tweetArray)
 	{
 		
