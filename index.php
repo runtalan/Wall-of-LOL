@@ -14,4 +14,4 @@ $template = $twig->loadTemplate('main.html');
 // Build Variable Array
 $vars["page"] = "index";
 $template->display($vars);
-?>
+?>>

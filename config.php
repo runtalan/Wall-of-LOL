@@ -9,4 +9,8 @@ $DB_PASS = ""; // base64 encode
 /* configuration options for the database */
 $MAX_DIFF_TIMESTAMP = "50" // in seconds
 
+?>ACHE","50");
+
+/* configuration options for the database */
+define ("MAX_DIFF_TIMESTAMP", "50");
 ?>
