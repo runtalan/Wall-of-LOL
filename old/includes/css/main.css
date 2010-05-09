@@ -1,0 +1,67 @@
+/* 
+	Wall of LoL !
+     color table:
+     - text - 
+		#36393D - shadow grey
+
+	 - green gradient -
+	 	#527543 - 5th green (darkest)
+	 	#799762 - 4th green
+	 	#9FB980 - 3rd green (light)
+	 	#C6DB9F - 2nd green/yeelow
+	 	#ECFDBD - 1st yellow
+*/
+
+body {
+	background-color: #FAFAFC;
+	text-align: center;
+	color: #36393D;
+}
+
+div#logo_container {
+	text-align: center;
+	
+}
+
+div#post_container {
+	padding: 20px;
+	text-align: center;
+}
+ 
+	div#post_container textarea {
+		-moz-border-radius: 7px; -webkit-border-radius: 7px;
+		border: none;
+		width: 610px;
+		height: 80px;
+		color: #36393D;
+		font-size: 14px;
+		border: 5px solid #36393D;
+		background-color: #799762;
+		padding: 5px;
+	}
+
+	div#post_container div#submit_container {
+		width: 635px; 
+		margin: auto;
+	}
+	
+		div#post_container div#submit_container div#buttons_container {
+			width: 600px;
+			float: right;
+		} 
+	
+		div#post_container div#submit_container input {
+			background:#BBBBBB url(http://s.twimg.com/a/1256168635/images/bg-btn-search.png) repeat-x scroll 0 0;
+			border:1px solid #36393D;
+			color:#333333;
+			font-family:Helvetica,Arial,Sans-serif;
+			font-size:18px;
+			font-style:normal;
+			outline-color:-moz-use-text-color;
+			outline-style:none;
+			outline-width:medium;
+			padding:2px 3px;
+			text-decoration:none;
+			text-shadow:0 1px 0 #FFFFFF;
+		}
+		
