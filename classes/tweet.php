@@ -2,18 +2,18 @@
 class tweet
 {
     //maybe this should be an array?
-    private $profile_image_url = NULL;
-    private $id = NULL;
-    private $created_at = NULL;
-    private $geo = NULL;
-    private $iso_language_code = NULL;
-    private $source = NULL;
-    private $result_type = NULL;
-    private $to_user = NULL;
-    private $to_user_id = NULL;
-    private $from_user = NULL;
-    private $from_user_id = NULL;
-    private $text = NULL;
+    public $profile_image_url = NULL;
+    public $id = NULL;
+    public $created_at = NULL;
+    public $geo = NULL;
+    public $iso_language_code = NULL;
+    public $source = NULL;
+    public $result_type = NULL;
+    public $to_user = NULL;
+    public $to_user_id = NULL;
+    public $from_user = NULL;
+    public $from_user_id = NULL;
+    public $text = NULL;
 
     /**
     * Accepts an array of tweet elements
@@ -25,8 +25,11 @@ class tweet
     {
         foreach ($tweet_array as $key => $value)
         {
+
+				
             if ($key != 'metadata')
             {
+				$value = $value;
                 $this->$key = $value;
             }
             else

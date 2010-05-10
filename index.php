@@ -1,5 +1,7 @@
 <?php
 
+include_once 'functions.php';
+
 // <!-- TWIG SETUP -->
 require_once './lib/Twig/Autoloader.php';
 Twig_Autoloader::register();
@@ -13,6 +15,14 @@ $template = $twig->loadTemplate('main.html');
 
 
 // <!-- MAIN -->
-$vars["page"] = "index";
+$vars["page"]  = "index";
+$tweetTerms[0] = "lulz";
+$tweetMax      = "10";
+$db            = new database(DB_HOST,DB_USER,DB_PASS);
+$tweetArray    = pollTwitter($tweetTerms, $tweetMax);
+$db->pushTweets($tweetArray);
+$vars["page"]   = "index";
+$vars["tweets"] = $db->getTweets();
+
 $template->display($vars);
 ?>

@@ -73,6 +73,7 @@ ul.feed {
 		width:6	0px;
 		margin: auto;
 		margin-top: 20px;
+		border: 1px dashed #A4BCC2;
 	}
 
 		ul.feed li a span {

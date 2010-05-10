@@ -11,6 +11,7 @@ include("config.php");
 include("classes/database.php");
 include("classes/tweet.php");
 */
+
 include_once("config.php");
 include_once("classes/database.php");
 include_once("classes/tweet.php");
@@ -74,7 +75,6 @@ function pollTwitter($terms, $num)
     $result = file_get_contents($twitter_query);
 
     //break the results apart and make them into an array
-    
     $vars = json_decode($result, true);
     for ($i = 0; $i < $num; $i++)
     {
