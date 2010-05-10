@@ -1,5 +1,5 @@
 <?php
-define("DEBUG", false);
+define("DEBUG", true);
 
 /* mySQL database vars */
 define("DB_HOST" , "173.201.88.27");

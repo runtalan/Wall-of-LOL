@@ -56,27 +56,26 @@ class database
 			{
 				return $tweetxt;
 			}
-			
 		}
 		
-		$qry = "SELECT * from tweets ORDER BY ID DESC LIMIT 10";
-		$re = mysql_query($qry) or die(mysql_error());
+		$qry    = "SELECT * from tweets ORDER BY ID DESC LIMIT 10";
+		$re     = mysql_query($qry) or die(mysql_error());
 		$tweets = array();
 		while ($row = mysql_fetch_array($re, MYSQL_ASSOC)) {
-		  $tweet["profile_image_url"] = $row["profile_image_url"];
-		  $tweet["tweetID"]           = $row["tweetID"];
-		  $tweet["created_at"]        = $row["created_at"];
-		  $tweet["geo"]               = $row["geo"];
-		  $tweet["iso_language"]      = $row["iso_language"];
-		  $tweet["source"]            = $row["source"];
-		  $tweet["result_type"]       = $row["result_type"];
-		  $tweet["to_user"]           = $row["to_user"];
-		  $tweet["to_user_id"]        = $row["to_user_id"];
-		  $tweet["from_user"]         = $row["from_user"];
-		  $tweet["from_user_id"]      = $row["from_user_id"];
-		  $tweet["tweet_txt"]         = parseAtLink($row["tweet_txt"]);	
-	
-		  array_push($tweets,$tweet);
+			$tweet["profile_image_url"] = $row["profile_image_url"];
+			$tweet["tweetID"]           = $row["tweetID"];
+			$tweet["created_at"]        = $row["created_at"];
+			$tweet["geo"]               = $row["geo"];
+			$tweet["iso_language"]      = $row["iso_language"];
+			$tweet["source"]            = $row["source"];
+			$tweet["result_type"]       = $row["result_type"];
+			$tweet["to_user"]           = $row["to_user"];
+			$tweet["to_user_id"]        = $row["to_user_id"];
+			$tweet["from_user"]         = $row["from_user"];
+			$tweet["from_user_id"]      = $row["from_user_id"];
+			$tweet["tweet_txt"]         = parseAtLink($row["tweet_txt"]);	
+			$tweet["tweet_txt"]         = htmlspecialchars_decode($tweet["tweet_txt"]);
+			array_push($tweets,$tweet);
 		}
 		mysql_free_result($re);
 		return $tweets;
@@ -103,9 +102,7 @@ class database
 
 			$qry = "INSERT INTO tweets (profile_image_url, tweetID, created_at, geo, iso_language_code, source, result_type, to_user, to_user_id, from_user, from_user_id, tweet_txt) VALUES ('".$profile_image_url."', '".$tweetID."', '".$created_at."', '".$geo."', '".$iso_language."', '".$source."', '".$result_type."', '".$to_user."', '".$to_user_id."', '".$from_user."', '".$from_user_id."', '".$tweet_txt."');";
 			
-			if (!DEBUG)
-				mysql_query($qry);
-
+			if (!DEBUG) mysql_query($qry);
 		}
 	}
 }

@@ -60,7 +60,9 @@ class __TwigTemplate_4bc77acce81ef639c55e218a8e9ead86 extends Twig_Template
 \t\t\t\t\t\t\t<a class=\"at_link\" href=\"http://www.twitter.com/";
         // line 25
         echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "to_user", array());
-        echo "\">@martinrue</a> 
+        echo "\">@";
+        echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "to_user", array());
+        echo "</a> 
 \t\t\t\t\t\t";
       }
       // line 26
