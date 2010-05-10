@@ -40,7 +40,7 @@ a.at_link {
 }
 
 a.from_user {
-	color: #E8F3F8;
+	color: #C1D1D6;
 }
 
 a.tweet_id {
@@ -64,7 +64,7 @@ ul.feed {
 	
 }
 	ul.feed li {
-		background-color: #81A8B8;
+		background-color: #FFF;
 		-moz-border-radius: 4px;
 		-webkit-border-radius: 4px;
 		height:80px;
@@ -105,5 +105,12 @@ ul.feed {
 
 /* ----- FOOTER ----- */
 #footer { 
-	height:100px;
+	color: #81A8B8;
+	font:10px bold;
+	margin: auto;
+	text-align: center;
+}
+
+#footer div.copyright {
+
 }

@@ -87,8 +87,7 @@ class __TwigTemplate_4bc77acce81ef639c55e218a8e9ead86 extends Twig_Template
 \t\t\t</ul>
 \t\t</div>
 \t\t<div class=\"center_column\" id=\"footer\">
-\t\t\t
-\t\t\t
+\t\t\t<div class=\"copyright\">(c) 2010 yo' mama</div>
 \t\t</div>
 \t</body>
 </html>";
