@@ -39,6 +39,15 @@ class database
 		return mysql_close($this->link);
 	}
 	
+	
+	// looks in the database for the latest tweet,
+	public function getLatestTweetTimeStamp()
+	{
+		$qry = "SELECT created_at FROM tweets ORDER BY created_at DESC LIMIT 1";
+		$re  = mysql_query($qry);
+		return mysql_result($re, 0);
+	}
+	
 	// pulls tweets from database, and returns an multi dimensional array;
 	public function getTweets()
 	{
@@ -58,8 +67,9 @@ class database
 			}
 		}
 		
-		$qry    = "SELECT * from tweets ORDER BY ID DESC LIMIT 10";
+		$qry    = "SELECT * from tweets ORDER BY created_at DESC LIMIT 10";
 		$re     = mysql_query($qry) or die(mysql_error());
+		$time   = time();
 		$tweets = array();
 		while ($row = mysql_fetch_array($re, MYSQL_ASSOC)) {
 			$tweet["profile_image_url"] = $row["profile_image_url"];
@@ -74,6 +84,7 @@ class database
 			$tweet["from_user"]         = $row["from_user"];
 			$tweet["from_user_id"]      = $row["from_user_id"];
 			$tweet["tweet_txt"]         = parseAtLink($row["tweet_txt"]);	
+			$tweet["fuzzy_timestamp"]   = getFuzzyTime($time, $row["created_at"]);
 			$tweet["tweet_txt"]         = htmlspecialchars_decode($tweet["tweet_txt"]);
 			array_push($tweets,$tweet);
 		}
@@ -84,12 +95,12 @@ class database
 	// pushes array of tweet objects to databases
 	public function pushTweets($tweetArray)
 	{
-		
 		foreach($tweetArray as $tweet)
 		{
 			$profile_image_url = $tweet->profile_image_url;
 			$tweetID           = $tweet->id;
 			$created_at        = $tweet->created_at;
+			$created_at		   = from_apachedate($created_at);
 			$geo               = $tweet->geo;
 			$iso_language      = $tweet->iso_language;
 			$source            = $tweet->source;

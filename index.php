@@ -16,10 +16,11 @@ $template = $twig->loadTemplate('main.html');
 
 // <!-- MAIN -->
 $vars["page"]  = "index";
-$tweetTerms[0] = "lulz";
-$tweetMax      = "10";
 $db            = new database(DB_HOST,DB_USER,DB_PASS);
-$tweetArray    = pollTwitter($tweetTerms, $tweetMax);
+
+// Check last update from database
+
+$tweetArray    = pollTwitter($TWEET_SEARCH, $TWEET_MAX);
 $db->pushTweets($tweetArray);
 $vars["page"]   = "index";
 $vars["tweets"] = $db->getTweets();

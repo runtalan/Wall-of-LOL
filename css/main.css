@@ -19,7 +19,7 @@ div.center_column {
 }
 
 	#header img#logo {
-		width: 
+
 	}
 
 /* ----- MAIN CONTENT ----- */
@@ -32,6 +32,8 @@ div.center_column {
 p, dl, multicol {
 	display:block;
 	margin:1em 0;
+
+
 }
 
 /* Links */
@@ -49,6 +51,8 @@ a.tweet_id {
 
 span.created_at {
 	color: #A4BCC2;
+	text-shadow: #D5D6DB 5px 5px 2px;
+	
 }
 
 
@@ -78,9 +82,12 @@ ul.feed {
 
 		ul.feed li a span {
 			margin:6px;
+		
 		}
 
 		ul.feed li p.tweet_avatar {
+			-webkit-box-shadow: 3px 3px 10px #AAA;
+			-moz-box-shadow: 3px 3px 10px #AAA;
 			background-color: #81A8B8;
 			-moz-border-radius: 8px;
 			-webkit-border-radius: 8px;

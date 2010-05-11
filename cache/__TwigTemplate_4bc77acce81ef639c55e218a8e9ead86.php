@@ -21,11 +21,10 @@ class __TwigTemplate_4bc77acce81ef639c55e218a8e9ead86 extends Twig_Template
 \t\t<div class=\"center_column\" id=\"header\">
 \t\t\t<img src=\"img/wol-logo\" alt=\"Wall of LoL\" id=\"logo\" />\t
 \t\t</div>
-\t\t
 \t\t<div class=\"center_column\" id=\"content\">
 \t\t\t<ul id=\"feed\" class=\"feed\">
-\t\t\t\t";
-    // line 16
+";
+    // line 15
     $context['_parent'] = (array) $context;
     $context['_seq'] = twig_iterator_to_array((isset($context['tweets']) ? $context['tweets'] : null));
     $length = count($context['_seq']);
@@ -41,52 +40,56 @@ class __TwigTemplate_4bc77acce81ef639c55e218a8e9ead86 extends Twig_Template
     );
     foreach ($context['_seq'] as $context["_key"] => $context["tweet"])
     {
-      echo "
-\t\t\t\t<li class=\"tweet\">
+      echo "\t\t\t\t<li class=\"tweet\">
 \t\t\t\t\t<p class=\"tweet_avatar\">
-\t\t\t\t\t\t<a href=\"\">
+\t\t\t\t\t\t<a href=\"http://www.twitter.com/";
+      // line 17
+      echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "from_user", array());
+      echo "\">
 \t\t\t\t\t\t\t<span style=\"display: block; background-image: url('";
-      // line 20
+      // line 18
       echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "profile_image_url", array());
       echo "'); height: 48px; width: 48px;\"></span>
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</p>
 \t\t\t\t\t<p class=\"tweet_text\">
 \t\t\t\t\t\t";
-      // line 24
+      // line 22
       if ($this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "to_user", array()))
       {
         echo "
 \t\t\t\t\t\t\t<a class=\"at_link\" href=\"http://www.twitter.com/";
-        // line 25
+        // line 23
         echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "to_user", array());
         echo "\">@";
         echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "to_user", array());
         echo "</a> 
 \t\t\t\t\t\t";
       }
-      // line 26
+      // line 24
       echo "
 \t\t\t\t\t\t";
-      // line 27
+      // line 25
       echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "tweet_txt", array());
       echo "
 \t\t\t\t\t</p>
 \t\t\t\t\t<p class=\"tweet_info\">
 \t\t\t\t\t\t&mdash; <a class=\"from_user\" href=\"http://www.twitter.com/";
-      // line 30
+      // line 28
       echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "from_user", array());
       echo "\">";
       echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "from_user", array());
       echo "</a> 
 \t\t\t\t\t\t<a class=\"tweet_id\" href=\"/status/13691957569\">#";
-      // line 31
+      // line 29
       echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "tweetID", array());
       echo "</a> 
-\t\t\t\t\t\t<span class=\"created_at\">13 seconds ago</span>
+\t\t\t\t\t\t<span class=\"created_at\">";
+      // line 30
+      echo $this->getAttribute((isset($context['tweet']) ? $context['tweet'] : null), "fuzzy_timestamp", array());
+      echo "</span>
 \t\t\t\t\t</p>
-\t\t\t\t</li>
-\t\t\t\t";
+\t\t\t\t</li>";
       ++$context['loop']['index0'];
       ++$context['loop']['index'];
       --$context['loop']['revindex0'];
@@ -95,10 +98,8 @@ class __TwigTemplate_4bc77acce81ef639c55e218a8e9ead86 extends Twig_Template
       $context['loop']['last'] = 0 === $context['loop']['revindex0'];
     }
     $context = $context['_parent'];
-    // line 35
+    // line 32
     echo "
-\t\t\t
-
 \t\t\t</ul>
 \t\t</div>
 \t\t<div class=\"center_column\" id=\"footer\">

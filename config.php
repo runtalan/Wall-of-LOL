@@ -1,5 +1,5 @@
 <?php
-define("DEBUG", true);
+define("DEBUG", false);
 
 /* mySQL database vars */
 define("DB_HOST" , "173.201.88.27");
@@ -9,6 +9,12 @@ define("DB_PASS" , "UXdlcnR5MTMzNw=="); // base64 encode
 define("DB_NAME" , "walloflol");
 
 /* configuration options for the database */
-define("$MAX_DIFF_TIMESTAMP" , "50"); // in seconds
+define("MAX_DIFF_TIMESTAMP" , "50"); // in seconds
+
+
+// search terms
+// $TWEET_SEARCH[0] 	= "lulz";
+$TWEET_SEARCH[0]	= "lol";
+$TWEET_MAX      	= "10";
 
 ?>

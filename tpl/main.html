@@ -10,13 +10,11 @@
 		<div class="center_column" id="header">
 			<img src="img/wol-logo" alt="Wall of LoL" id="logo" />	
 		</div>
-		
 		<div class="center_column" id="content">
 			<ul id="feed" class="feed">
-				{% for tweet in tweets %}
-				<li class="tweet">
+{% for tweet in tweets %}				<li class="tweet">
 					<p class="tweet_avatar">
-						<a href="">
+						<a href="http://www.twitter.com/{{ tweet.from_user }}">
 							<span style="display: block; background-image: url('{{ tweet.profile_image_url }}'); height: 48px; width: 48px;"></span>
 						</a>
 					</p>
@@ -29,12 +27,9 @@
 					<p class="tweet_info">
 						&mdash; <a class="from_user" href="http://www.twitter.com/{{ tweet.from_user }}">{{ tweet.from_user }}</a> 
 						<a class="tweet_id" href="/status/13691957569">#{{ tweet.tweetID }}</a> 
-						<span class="created_at">13 seconds ago</span>
+						<span class="created_at">{{ tweet.fuzzy_timestamp }}</span>
 					</p>
-				</li>
-				{% endfor %}
-			
-
+				</li>{% endfor %}
 			</ul>
 		</div>
 		<div class="center_column" id="footer">

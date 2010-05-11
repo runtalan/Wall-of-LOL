@@ -93,4 +93,41 @@ function pollTwitter($terms, $num)
     //return our array of tweet objects
     return $tweets;
 }
+
+
+// <--- TIME/DATE FUNCTIONS --->
+function from_apachedate($date)
+{
+       list($D, $d, $M, $y, $h, $m, $s, $z) = sscanf($date, "%3s, %2d %3s
+%4d %2d:%2d:%2d %5s");
+       return strtotime("$d $M $y $h:$m:$s $z");
+}
+
+// returns the relative timestamp
+function getFuzzyTime($timenow, $ptime){
+
+    $etime = $timenow - $ptime;
+	
+    if ($etime < 1) {
+        return 'less than a second ago';
+    }
+
+    $a = array( 31104000=>  'year',
+                2592000 =>  'month',
+                86400   =>  'day',
+                3600    =>  'hour',
+                60      =>  'minute',
+                1       =>  'second'
+                );
+
+    foreach ($a as $secs => $str) {
+        $d = $etime / $secs;
+        if ($d >= 1) {
+            $r = round($d);
+            return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago.';
+        }
+    }
+
+}
+
 ?>
