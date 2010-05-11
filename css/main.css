@@ -2,13 +2,13 @@ body {
 	width:750px;
 	margin:0 auto;
 	background-color: #A4BCC2;
-	background-image:url('../img/bg_200x200.png');
+	background-image:url('../img/4bg_200x200.png');
 	background-repeat:repeat-x repeat-y;
 	font:13px "Helvetica Neue",Helvetica,Arial,Geneva,sans-serif;
 }
 
 div.center_column {
-	width:750px;
+	width:720px;
 }
 
 
@@ -37,8 +37,19 @@ p, dl, multicol {
 }
 
 /* Links */
+a {
+	color: #78A4B5;
+	text-decoration:underline
+}
+
+a:hover {
+	color: #78A4B5;	
+	text-decoration: none;
+}
+
 a.at_link {
 	color: #DBE6EC;
+	text-shadow: none;
 }
 
 a.from_user {
@@ -52,6 +63,18 @@ a.tweet_id {
 span.created_at {
 	color: #A4BCC2;
 	text-shadow: #D5D6DB 5px 5px 2px;
+	
+}
+a.keyword {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+span#author {
+	font:13px "Helvetica Neue",Helvetica,Arial,Geneva,sans-serif;
+	color: orange;
+	float: right;
+	text-shadow: #AAA 3px 3px 5px;
 	
 }
 
@@ -102,10 +125,13 @@ ul.feed {
 		p.tweet_text {
 			color:#0D1418;
 			margin:13px 30px 0 0px;
+			text-shadow: #D5D6DB 5px 5px 3px;
+			
 		}
 		
 		p.tweet_info {
 			color:#05253B;
+			padding-top: 5px;
 			margin:3px 0 0 0px;
 		}
 		

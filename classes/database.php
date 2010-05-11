@@ -41,15 +41,17 @@ class database
 	
 	
 	// looks in the database for the latest tweet,
-	public function getLatestTweetTimeStamp()
+	public function getLatestTweetTimestamp()
 	{
 		$qry = "SELECT created_at FROM tweets ORDER BY created_at DESC LIMIT 1";
 		$re  = mysql_query($qry);
 		return mysql_result($re, 0);
 	}
 	
+	
+	
 	// pulls tweets from database, and returns an multi dimensional array;
-	public function getTweets()
+	public function getTweets($how_many = 10)
 	{
 		function parseAtLink($tweetxt)
 		{
@@ -67,7 +69,7 @@ class database
 			}
 		}
 		
-		$qry    = "SELECT * from tweets ORDER BY created_at DESC LIMIT 10";
+		$qry    = "SELECT * from tweets ORDER BY created_at DESC LIMIT " . $how_many;
 		$re     = mysql_query($qry) or die(mysql_error());
 		$time   = time();
 		$tweets = array();
@@ -83,9 +85,15 @@ class database
 			$tweet["to_user_id"]        = $row["to_user_id"];
 			$tweet["from_user"]         = $row["from_user"];
 			$tweet["from_user_id"]      = $row["from_user_id"];
-			$tweet["tweet_txt"]         = parseAtLink($row["tweet_txt"]);	
+			$tweet["tweet_txt"]         = parseAtLink($row["tweet_txt"]);
+			$tweet["tweet_txt"] = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]", "<a href=\"\\0\">\\0</a>",$tweet["tweet_txt"]);
+			$tweet["tweet_txt"] = str_ireplace("lol", "<a href=\"lol.php\" class=\"keyword\">lol</a>",$tweet["tweet_txt"]);		
 			$tweet["fuzzy_timestamp"]   = getFuzzyTime($time, $row["created_at"]);
+			
+			// need to highlight searchTerms;
 			$tweet["tweet_txt"]         = htmlspecialchars_decode($tweet["tweet_txt"]);
+			
+			
 			array_push($tweets,$tweet);
 		}
 		mysql_free_result($re);

@@ -4,24 +4,27 @@
 		<!-- jQuery leetness -->
 		<script src="lib/jquery/js/jquery-1.4.2.min.js" language="javascript" type="text/javascript">
 		</script>
-		<title>{{ page }}</title>
+		<script src="js/main_onLoad.js" language="javascript" type="text/javascript">
+		</script>
+		<title>wall of lol - where the lulz begin</title>
 	</head>
 	<body>
 		<div class="center_column" id="header">
-			<img src="img/wol-logo" alt="Wall of LoL" id="logo" />	
+			<img src="img/wol-logo" alt="Wall of LoL" id="logo" />
+			<span id="author">written by phishpants && mad_gouki</span>
 		</div>
 		<div class="center_column" id="content">
 			<ul id="feed" class="feed">
-{% for tweet in tweets %}				<li class="tweet">
+{% for tweet in tweets %}				<li class="tweet" id="{{ tweet.created_at }}">
 					<p class="tweet_avatar">
 						<a href="http://www.twitter.com/{{ tweet.from_user }}">
 							<span style="display: block; background-image: url('{{ tweet.profile_image_url }}'); height: 48px; width: 48px;"></span>
 						</a>
 					</p>
-					<p class="tweet_text">
-						{% if tweet.to_user %}
+					<p class="tweet_text">						
+{% if tweet.to_user %}
 							<a class="at_link" href="http://www.twitter.com/{{ tweet.to_user }}">@{{ tweet.to_user }}</a> 
-						{% endif %}
+{% endif %}
 						{{ tweet.tweet_txt }}
 					</p>
 					<p class="tweet_info">

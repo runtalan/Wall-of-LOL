@@ -127,7 +127,9 @@ function getFuzzyTime($timenow, $ptime){
             return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago.';
         }
     }
-
 }
+
+//
+
 
 ?>

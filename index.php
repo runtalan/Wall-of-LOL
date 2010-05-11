@@ -15,14 +15,21 @@ $template = $twig->loadTemplate('main.html');
 
 
 // <!-- MAIN -->
-$vars["page"]  = "index";
-$db            = new database(DB_HOST,DB_USER,DB_PASS);
+$db = new database(DB_HOST,DB_USER,DB_PASS);
 
-// Check last update from database
 
-$tweetArray    = pollTwitter($TWEET_SEARCH, $TWEET_MAX);
-$db->pushTweets($tweetArray);
+// Poll Twitter, Push to Database if too much time has elapsed since last push.
+$last_updated = $db->getLatestTweetTimestamp(); // in epoch time
+$time = time(); // grab time now (epoch)
+if (($time - $last_updated ) > TWEET_POLL)
+{
+	$tweet_array    = pollTwitter($TWEET_SEARCH, TWEET_MAX_DISPLAY);
+	$db->pushTweets($tweet_array);	
+}
+
 $vars["page"]   = "index";
+
+// Pull set of Tweets from DB to Display.
 $vars["tweets"] = $db->getTweets();
 
 $template->display($vars);
